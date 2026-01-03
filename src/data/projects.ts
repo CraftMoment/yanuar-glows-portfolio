@@ -24,40 +24,38 @@ export const projects: Project[] = [
   {
     id: "1",
     slug: "knowledge-management-system",
-    techStack: ["React.js", "Golang", "RAG", "NVIDIA H100", "PostgreSQL"],
+    techStack: ["React", "Golang", "PostgreSQL", "Docker"],
     image: "/placeholder.svg",
     content: {
       id: {
-        title: "Knowledge Management System",
-        client: "Badan Pemeriksa Keuangan Republik Indonesia",
-        shortDescription: "Platform manajemen pengetahuan berbasis AI dengan kemampuan RAG untuk pengambilan dan berbagi informasi yang efisien.",
-        introduction: "BPK RI membutuhkan sistem manajemen pengetahuan terintegrasi untuk mengatur dan mengambil pengetahuan institusional secara efisien. Tantangannya adalah menciptakan sistem yang dapat memahami konteks dan memberikan informasi yang akurat dan relevan dengan cepat.",
-        purpose: "Untuk meningkatkan aksesibilitas pengetahuan dan memperbaiki proses pengambilan keputusan melalui manajemen dan pengambilan dokumen cerdas menggunakan teknologi AI canggih.",
+        title: "Knowledge Management System (KMS)",
+        client: "Badan Pemeriksa Keuangan RI (BPK RI)",
+        shortDescription: "Sistem terpusat untuk mengelola, menyimpan, dan menelusuri pengetahuan institusi di lingkungan BPK RI.",
+        introduction: "Saya terlibat dalam pengembangan Knowledge Management System (KMS) sebagai sistem terpusat untuk mengelola, menyimpan, dan menelusuri pengetahuan institusi di lingkungan BPK RI. Sistem ini dirancang untuk menangani dokumen dalam jumlah besar dengan tetap menjaga keamanan, hak akses, dan kepatuhan terhadap standar organisasi.",
+        purpose: "Sebagai Fullstack Developer, saya berkontribusi dalam pengembangan layanan backend untuk pengelolaan dokumen dan pencarian, pembuatan antarmuka pengguna yang responsif, implementasi mekanisme pencarian dokumen berbasis konteks, penerapan pengaturan hak akses dan peran pengguna, serta mendukung proses deployment dan skalabilitas sistem.",
         features: [
-          "Implementasi RAG (Retrieval-Augmented Generation) untuk pengambilan informasi yang akurat",
-          "Didukung NVIDIA H100 untuk pemrosesan AI berkinerja tinggi",
-          "Frontend React.js dengan antarmuka pengguna yang intuitif",
-          "Backend Golang untuk performa yang handal",
-          "Kemampuan pencarian semantik",
-          "Versioning dan manajemen dokumen"
+          "Pencarian dokumen terpusat dan terstruktur",
+          "Manajemen dokumen dan versioning",
+          "Pengaturan hak akses berbasis peran (role-based access)",
+          "Kolaborasi pengguna dalam pengelolaan dokumen",
+          "Laporan penggunaan dan aktivitas sistem"
         ],
-        conclusion: "Berhasil menghadirkan KMS mutakhir yang secara signifikan meningkatkan akurasi pengambilan informasi dan mengurangi waktu yang dihabiskan untuk mencari pengetahuan institusional."
+        conclusion: "Sistem berhasil diimplementasikan dan membantu mengurangi waktu pencarian dokumen hingga 70%, serta meningkatkan efektivitas berbagi pengetahuan antar unit kerja."
       },
       en: {
-        title: "Knowledge Management System",
-        client: "The Audit Board of The Republic of Indonesia",
-        shortDescription: "AI-powered knowledge management platform with RAG capabilities for efficient document retrieval and knowledge sharing.",
-        introduction: "BPK RI needed an integrated knowledge management system to efficiently organize and retrieve institutional knowledge. The challenge was to create a system that could understand context and provide accurate, relevant information quickly.",
-        purpose: "To enhance knowledge accessibility and improve decision-making processes through intelligent document management and retrieval using advanced AI technologies.",
+        title: "Knowledge Management System (KMS)",
+        client: "The Audit Board of The Republic of Indonesia (BPK RI)",
+        shortDescription: "A centralized system for managing, storing, and retrieving institutional knowledge within BPK RI.",
+        introduction: "I was involved in developing the Knowledge Management System (KMS) as a centralized system for managing, storing, and retrieving institutional knowledge within BPK RI. The system is designed to handle large volumes of documents while maintaining security, access rights, and compliance with organizational standards.",
+        purpose: "As a Fullstack Developer, I contributed to developing backend services for document management and search, creating a responsive and user-friendly interface, implementing context-based document search mechanisms, applying role-based access control settings, and supporting deployment and system scalability processes.",
         features: [
-          "RAG (Retrieval-Augmented Generation) implementation for accurate information retrieval",
-          "Powered by NVIDIA H100 for high-performance AI processing",
-          "React.js frontend with intuitive user interface",
-          "Golang backend for robust performance",
-          "Semantic search capabilities",
-          "Document versioning and management"
+          "Centralized and structured document search",
+          "Document management and versioning",
+          "Role-based access control settings",
+          "User collaboration in document management",
+          "Usage and system activity reports"
         ],
-        conclusion: "Successfully delivered a cutting-edge KMS that significantly improved information retrieval accuracy and reduced time spent searching for institutional knowledge."
+        conclusion: "The system was successfully implemented and helped reduce document search time by up to 70%, as well as improving the effectiveness of knowledge sharing across work units."
       }
     }
   },
