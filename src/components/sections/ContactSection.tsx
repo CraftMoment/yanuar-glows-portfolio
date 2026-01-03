@@ -1,35 +1,37 @@
 import { motion } from "framer-motion";
 import { Phone, Mail, Github, Linkedin } from "lucide-react";
-import { Button } from "@/components/ui/button";
-
-const contactLinks = [
-  {
-    icon: Phone,
-    label: "Phone",
-    value: "+62 838-3881-2841",
-    href: "tel:+6283838812841"
-  },
-  {
-    icon: Mail,
-    label: "Email",
-    value: "yanuarprayogat@gmail.com",
-    href: "mailto:yanuarprayogat@gmail.com"
-  },
-  {
-    icon: Github,
-    label: "GitHub",
-    value: "GitHub",
-    href: "https://github.com"
-  },
-  {
-    icon: Linkedin,
-    label: "LinkedIn",
-    value: "LinkedIn",
-    href: "https://linkedin.com"
-  }
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ContactSection = () => {
+  const { t } = useLanguage();
+
+  const contactLinks = [
+    {
+      icon: Phone,
+      label: t("Telepon", "Phone"),
+      value: "+62 838-3881-2841",
+      href: "tel:+6283838812841"
+    },
+    {
+      icon: Mail,
+      label: "Email",
+      value: "yanuarprayogat@gmail.com",
+      href: "mailto:yanuarprayogat@gmail.com"
+    },
+    {
+      icon: Github,
+      label: "GitHub",
+      value: "GitHub",
+      href: "https://github.com"
+    },
+    {
+      icon: Linkedin,
+      label: "LinkedIn",
+      value: "LinkedIn",
+      href: "https://linkedin.com"
+    }
+  ];
+
   return (
     <section id="contact" className="py-20 px-4 bg-secondary/30">
       <div className="container max-w-3xl">
@@ -41,11 +43,13 @@ const ContactSection = () => {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
-            Get In Touch
+            {t("Hubungi Saya", "Get In Touch")}
           </h2>
           <p className="text-muted-foreground max-w-md mx-auto">
-            Have a project in mind or want to discuss opportunities? 
-            Feel free to reach out.
+            {t(
+              "Punya proyek dalam pikiran atau ingin mendiskusikan peluang? Jangan ragu untuk menghubungi saya.",
+              "Have a project in mind or want to discuss opportunities? Feel free to reach out."
+            )}
           </p>
         </motion.div>
 

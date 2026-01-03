@@ -1,16 +1,20 @@
-import { Home, Briefcase, FolderOpen, Mail } from "lucide-react";
+import { Home, Briefcase, FolderOpen, Mail, Sun, Moon, Globe } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
-
-const navItems = [
-  { icon: Home, label: "Home", href: "/" },
-  { icon: Briefcase, label: "Experience", href: "/#experience" },
-  { icon: FolderOpen, label: "Projects", href: "/projects" },
-  { icon: Mail, label: "Contact", href: "/#contact" }
-];
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useTheme } from "@/contexts/ThemeContext";
 
 const MobileNav = () => {
   const location = useLocation();
+  const { t, language, setLanguage } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
+
+  const navItems = [
+    { icon: Home, label: t("Beranda", "Home"), href: "/" },
+    { icon: Briefcase, label: t("Pengalaman", "Exp"), href: "/#experience" },
+    { icon: FolderOpen, label: t("Proyek", "Projects"), href: "/projects" },
+    { icon: Mail, label: t("Kontak", "Contact"), href: "/#contact" }
+  ];
 
   const isActive = (href: string) => {
     if (href === "/") return location.pathname === "/";
@@ -38,15 +42,12 @@ const MobileNav = () => {
           const content = (
             <div
               className={cn(
-                "flex flex-col items-center gap-1 px-4 py-2 rounded-lg transition-colors",
+                "flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-lg transition-colors",
                 active ? "text-primary" : "text-muted-foreground"
               )}
             >
               <item.icon className="w-5 h-5" />
-              <span className="text-xs font-medium">{item.label}</span>
-              {active && (
-                <div className="absolute -bottom-0.5 w-1 h-1 rounded-full bg-primary" />
-              )}
+              <span className="text-[10px] font-medium">{item.label}</span>
             </div>
           );
 
@@ -73,6 +74,24 @@ const MobileNav = () => {
             </Link>
           );
         })}
+
+        {/* Language Toggle */}
+        <button
+          onClick={() => setLanguage(language === "id" ? "en" : "id")}
+          className="flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-lg text-muted-foreground"
+        >
+          <Globe className="w-5 h-5" />
+          <span className="text-[10px] font-medium uppercase">{language}</span>
+        </button>
+
+        {/* Theme Toggle */}
+        <button
+          onClick={toggleTheme}
+          className="flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-lg text-muted-foreground"
+        >
+          {theme === "light" ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
+          <span className="text-[10px] font-medium">{t("Tema", "Theme")}</span>
+        </button>
       </div>
     </nav>
   );
