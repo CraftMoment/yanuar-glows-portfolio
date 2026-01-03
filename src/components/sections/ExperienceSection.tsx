@@ -1,31 +1,34 @@
 import { motion } from "framer-motion";
 import { Building2, Calendar } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface Experience {
   company: string;
-  role: string;
+  role: { id: string; en: string };
   year: string;
-  type?: string;
+  type: { id: string; en: string };
 }
 
 const experiences: Experience[] = [
   {
     company: "PT Tristar Surya Gemilang",
-    role: "Fullstack Developer",
+    role: { id: "Fullstack Developer", en: "Fullstack Developer" },
     year: "2025",
-    type: "Full-time"
+    type: { id: "Penuh Waktu", en: "Full-time" }
   },
   {
     company: "PT Tristar Surya Gemilang",
-    role: "Intern Fullstack Developer",
+    role: { id: "Intern Fullstack Developer", en: "Intern Fullstack Developer" },
     year: "2024",
-    type: "Internship"
+    type: { id: "Magang", en: "Internship" }
   }
 ];
 
 const ExperienceSection = () => {
+  const { t, language } = useLanguage();
+
   return (
-    <section id="experience" className="py-20 px-4 bg-background">
+    <section id="experience" className="py-20 px-4">
       <div className="container max-w-3xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -35,10 +38,13 @@ const ExperienceSection = () => {
           className="mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
-            Experience
+            {t("Pengalaman", "Experience")}
           </h2>
           <p className="text-muted-foreground">
-            My professional journey in software development
+            {t(
+              "Perjalanan profesional saya dalam pengembangan perangkat lunak",
+              "My professional journey in software development"
+            )}
           </p>
         </motion.div>
 
@@ -60,17 +66,15 @@ const ExperienceSection = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {exp.role}
+                      {language === "id" ? exp.role.id : exp.role.en}
                     </h3>
                     <p className="text-muted-foreground">{exp.company}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4 md:flex-shrink-0">
-                  {exp.type && (
-                    <span className="px-3 py-1 text-sm font-medium rounded-full bg-badge text-badge-foreground">
-                      {exp.type}
-                    </span>
-                  )}
+                  <span className="px-3 py-1 text-sm font-medium rounded-full bg-badge text-badge-foreground">
+                    {language === "id" ? exp.type.id : exp.type.en}
+                  </span>
                   <div className="flex items-center gap-1.5 text-muted-foreground">
                     <Calendar className="w-4 h-4" />
                     <span className="text-sm font-medium">{exp.year}</span>

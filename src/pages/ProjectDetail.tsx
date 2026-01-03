@@ -1,21 +1,27 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, CheckCircle2, ExternalLink } from "lucide-react";
 import { getProjectBySlug } from "@/data/projects";
 import { Button } from "@/components/ui/button";
 import TechBadge from "@/components/TechBadge";
 import Footer from "@/components/Footer";
+import AnimatedBackground from "@/components/AnimatedBackground";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ProjectDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const project = slug ? getProjectBySlug(slug) : undefined;
+  const { t, language } = useLanguage();
 
   if (!project) {
     return <Navigate to="/projects" replace />;
   }
 
+  const content = language === "id" ? project.content.id : project.content.en;
+
   return (
-    <main className="pt-24 pb-20 md:pb-0">
+    <main className="pt-24 pb-20 md:pb-0 relative">
+      <AnimatedBackground />
       <article className="container max-w-3xl px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -25,7 +31,7 @@ const ProjectDetail = () => {
           <Button variant="ghost" size="sm" asChild className="mb-6 -ml-2">
             <Link to="/projects" className="gap-2">
               <ArrowLeft className="w-4 h-4" />
-              Back to Projects
+              {t("Kembali ke Proyek", "Back to Projects")}
             </Link>
           </Button>
 
@@ -33,7 +39,7 @@ const ProjectDetail = () => {
           <div className="aspect-video bg-secondary/50 rounded-xl overflow-hidden mb-8 relative">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
               <span className="text-6xl font-bold text-primary/20">
-                {project.title.split(' ').map(w => w[0]).join('').slice(0, 3)}
+                {content.title.split(" ").map(w => w[0]).join("").slice(0, 3)}
               </span>
             </div>
           </div>
@@ -41,11 +47,11 @@ const ProjectDetail = () => {
           {/* Title & Client */}
           <header className="mb-10">
             <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
-              {project.title}
+              {content.title}
             </h1>
-            {project.client && (
+            {content.client && (
               <p className="text-lg text-muted-foreground">
-                Client: {project.client}
+                {content.client}
               </p>
             )}
           </header>
@@ -54,10 +60,10 @@ const ProjectDetail = () => {
           <section className="mb-10">
             <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
               <div className="w-1 h-6 bg-primary rounded-full" />
-              Introduction & Problem
+              {t("Pendahuluan & Masalah", "Introduction & Problem")}
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              {project.introduction}
+              {content.introduction}
             </p>
           </section>
 
@@ -65,10 +71,10 @@ const ProjectDetail = () => {
           <section className="mb-10">
             <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
               <div className="w-1 h-6 bg-primary rounded-full" />
-              Purpose & Benefit
+              {t("Tujuan & Manfaat", "Purpose & Benefit")}
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              {project.purpose}
+              {content.purpose}
             </p>
           </section>
 
@@ -76,10 +82,10 @@ const ProjectDetail = () => {
           <section className="mb-10">
             <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center gap-2">
               <div className="w-1 h-6 bg-primary rounded-full" />
-              Key Features
+              {t("Fitur Utama", "Key Features")}
             </h2>
             <ul className="space-y-3">
-              {project.features.map((feature, index) => (
+              {content.features.map((feature, index) => (
                 <motion.li
                   key={index}
                   initial={{ opacity: 0, x: -10 }}
@@ -107,13 +113,25 @@ const ProjectDetail = () => {
             </div>
           </section>
 
+          {/* Live Demo */}
+          {project.liveDemo && (
+            <section className="mb-10">
+              <Button asChild variant="outline" className="gap-2">
+                <a href={project.liveDemo} target="_blank" rel="noopener noreferrer">
+                  <ExternalLink className="w-4 h-4" />
+                  Live Demo
+                </a>
+              </Button>
+            </section>
+          )}
+
           {/* Conclusion */}
           <section className="mb-12 p-6 bg-secondary/30 rounded-xl border border-border">
             <h2 className="text-xl font-semibold text-foreground mb-4">
-              Conclusion
+              {t("Kesimpulan", "Conclusion")}
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              {project.conclusion}
+              {content.conclusion}
             </p>
           </section>
 
@@ -122,7 +140,7 @@ const ProjectDetail = () => {
             <Button variant="outline" size="lg" asChild>
               <Link to="/projects" className="gap-2">
                 <ArrowLeft className="w-4 h-4" />
-                Back to Projects
+                {t("Kembali ke Proyek", "Back to Projects")}
               </Link>
             </Button>
           </div>

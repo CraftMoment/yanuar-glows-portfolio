@@ -2,10 +2,13 @@ import { motion } from "framer-motion";
 import { MapPin, Download, Mail, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const HeroSection = () => {
+  const { t } = useLanguage();
+
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 py-20 bg-gradient-to-br from-secondary/50 to-background">
+    <section className="min-h-screen flex items-center justify-center px-4 py-20 relative">
       <div className="container max-w-4xl">
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
           {/* Profile Image */}
@@ -26,7 +29,7 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
             >
-              Available
+              {t("Tersedia", "Available")}
             </motion.div>
           </motion.div>
 
@@ -54,8 +57,10 @@ const HeroSection = () => {
               </p>
 
               <p className="text-muted-foreground mb-8 max-w-lg mx-auto md:mx-0">
-                Building scalable web applications with modern technologies. 
-                Passionate about clean code, performance, and user experience.
+                {t(
+                  "Membangun aplikasi web yang skalabel dengan teknologi modern. Passionate tentang clean code, performa, dan pengalaman pengguna.",
+                  "Building scalable web applications with modern technologies. Passionate about clean code, performance, and user experience."
+                )}
               </p>
             </motion.div>
 
@@ -68,17 +73,17 @@ const HeroSection = () => {
               <Button asChild size="lg" className="gap-2">
                 <Link to="/projects">
                   <Briefcase className="w-4 h-4" />
-                  View Projects
+                  {t("Lihat Proyek", "View Projects")}
                 </Link>
               </Button>
               <Button variant="outline" size="lg" className="gap-2">
                 <Download className="w-4 h-4" />
-                Download CV
+                {t("Unduh CV", "Download CV")}
               </Button>
               <Button variant="ghost" size="lg" className="gap-2" asChild>
                 <a href="#contact">
                   <Mail className="w-4 h-4" />
-                  Contact
+                  {t("Kontak", "Contact")}
                 </a>
               </Button>
             </motion.div>
