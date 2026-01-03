@@ -223,42 +223,6 @@ export const projects: Project[] = [
         conclusion: "Successfully conducted campus elections with 100% vote accuracy and significantly improved voter participation through the accessible digital platform."
       }
     }
-  },
-  {
-    id: "6",
-    slug: "loan-management-system",
-    techStack: ["React", "Golang", "PostgreSQL", "Redis", "Docker"],
-    image: "/placeholder.svg",
-    content: {
-      id: {
-        title: "Loan Management System",
-        shortDescription: "Platform pemrosesan dan manajemen pinjaman komprehensif untuk institusi keuangan.",
-        introduction: "Institusi keuangan membutuhkan sistem yang efisien untuk mengelola aplikasi pinjaman, persetujuan, pencairan, dan pelacakan pembayaran dengan penilaian risiko yang tepat.",
-        purpose: "Mengotomatisasi dan mengoptimalkan proses manajemen siklus hidup pinjaman, mengurangi waktu pemrosesan dan meningkatkan manajemen risiko melalui keputusan berbasis data.",
-        features: [
-          "Aplikasi pinjaman dan verifikasi dokumen",
-          "Credit scoring dan penilaian risiko",
-          "Otomatisasi alur persetujuan",
-          "Penjadwalan dan pelacakan pembayaran",
-          "Manajemen tunggakan dan pelaporan"
-        ],
-        conclusion: "Mengimplementasikan sistem manajemen pinjaman yang mengurangi waktu pemrosesan pinjaman sebesar 60% dan meningkatkan visibilitas risiko portofolio untuk pengambilan keputusan yang lebih baik."
-      },
-      en: {
-        title: "Loan Management System",
-        shortDescription: "Comprehensive loan processing and management platform for financial institutions.",
-        introduction: "Financial institutions needed a streamlined system to manage loan applications, approvals, disbursements, and repayment tracking with proper risk assessment.",
-        purpose: "To automate and optimize the loan lifecycle management process, reducing processing time and improving risk management through data-driven decisions.",
-        features: [
-          "Loan application and document verification",
-          "Credit scoring and risk assessment",
-          "Approval workflow automation",
-          "Repayment scheduling and tracking",
-          "Delinquency management and reporting"
-        ],
-        conclusion: "Implemented a loan management system that reduced loan processing time by 60% and improved portfolio risk visibility for better decision making."
-      }
-    }
   }
 ];
 

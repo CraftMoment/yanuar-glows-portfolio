@@ -20,7 +20,11 @@ const HeroSection = () => {
           >
             <div className="w-40 h-40 md:w-52 md:h-52 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 p-1 shadow-card-hover">
               <div className="w-full h-full rounded-full bg-secondary flex items-center justify-center overflow-hidden">
-                <span className="text-5xl md:text-6xl font-bold text-primary/80">YP</span>
+                <img 
+                  src="/profile-photo.png" 
+                  alt="Yanuar Prayoga" 
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
             <motion.div
