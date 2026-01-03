@@ -25,7 +25,7 @@ export const projects: Project[] = [
     id: "1",
     slug: "knowledge-management-system",
     techStack: ["React", "Golang", "PostgreSQL", "Docker"],
-    image: "/placeholder.svg",
+    image: "/bpk.png",
     content: {
       id: {
         title: "Knowledge Management System (KMS)",
@@ -63,7 +63,7 @@ export const projects: Project[] = [
     id: "2",
     slug: "sisappra",
     techStack: ["Next.js", "React Native", "Golang (Gin)", "PostgreSQL", "MinIO", "Redis", "Docker"],
-    image: "/placeholder.svg",
+    image: "/sisappra.png",
     content: {
       id: {
         title: "SISAPPRA",
@@ -111,8 +111,8 @@ export const projects: Project[] = [
     id: "3",
     slug: "rmi-nik-checker",
     techStack: ["Laravel", "React", "MySQL", "OCR Engine", "WhatsApp API"],
-    image: "/placeholder.svg",
-    liveDemo: "https://example.com",
+    image: "/rmi.png",
+    liveDemo: "https://app.rmi.or.id/",
     content: {
       id: {
         title: "RMI NIK Checker",
@@ -156,7 +156,7 @@ export const projects: Project[] = [
     id: "4",
     slug: "helpdesk-ticketing",
     techStack: ["Next.js", "TypeScript", "Odoo", "PostgreSQL", "Tailwind CSS"],
-    image: "/placeholder.svg",
+    image: "/helpdesk.png",
     content: {
       id: {
         title: "Helpdesk Ticketing System",

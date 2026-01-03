@@ -21,7 +21,7 @@ const HeroSection = () => {
             <div className="w-40 h-40 md:w-52 md:h-52 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 p-1 shadow-card-hover">
               <div className="w-full h-full rounded-full bg-secondary flex items-center justify-center overflow-hidden">
                 <img 
-                  src="/profile-photo.png" 
+                  src="/profile_photo.jpg" 
                   alt="Yanuar Prayoga" 
                   className="w-full h-full object-cover"
                 />
@@ -57,13 +57,13 @@ const HeroSection = () => {
                 <span className="text-foreground font-semibold">Fullstack Developer</span>
                 <br className="md:hidden" />
                 <span className="hidden md:inline"> — </span>
-                React, Next.js, Golang
+                React, Next.js, Golang, Process Business
               </p>
 
               <p className="text-muted-foreground mb-8 max-w-lg mx-auto md:mx-0">
                 {t(
-                  "Membangun aplikasi web yang skalabel dengan teknologi modern. Passionate tentang clean code, performa, dan pengalaman pengguna.",
-                  "Building scalable web applications with modern technologies. Passionate about clean code, performance, and user experience."
+                  "Pengembang fullstack. Saya menjembatani kebutuhan bisnis dan implementasi sistem, menerjemahkan proses kompleks menjadi solusi teknis yang menjawab tantangan operasional secara akurat.",
+                  "Fullstack developer. I bridge business needs and system implementation, translating complex processes into technical solutions that accurately address operational challenges."
                 )}
               </p>
             </motion.div>
@@ -80,9 +80,11 @@ const HeroSection = () => {
                   {t("Lihat Proyek", "View Projects")}
                 </Link>
               </Button>
-              <Button variant="outline" size="lg" className="gap-2">
-                <Download className="w-4 h-4" />
-                {t("Unduh CV", "Download CV")}
+              <Button variant="outline" size="lg" className="gap-2" asChild>
+                <a href="/CV-Yanuar Prayoga-3-1-2026.pdf" download>
+                  <Download className="w-4 h-4" />
+                  {t("Unduh CV", "Download CV")}
+                </a>
               </Button>
               <Button variant="ghost" size="lg" className="gap-2" asChild>
                 <a href="#contact">

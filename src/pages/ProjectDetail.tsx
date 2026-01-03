@@ -37,11 +37,19 @@ const ProjectDetail = () => {
 
           {/* Hero Image */}
           <div className="aspect-video bg-secondary/50 rounded-xl overflow-hidden mb-8 relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
-              <span className="text-6xl font-bold text-primary/20">
-                {content.title.split(" ").map(w => w[0]).join("").slice(0, 3)}
-              </span>
-            </div>
+            {project.image && project.image !== "/placeholder.svg" ? (
+              <img 
+                src={project.image} 
+                alt={content.title}
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
+                <span className="text-6xl font-bold text-primary/20">
+                  {content.title.split(" ").map(w => w[0]).join("").slice(0, 3)}
+                </span>
+              </div>
+            )}
           </div>
 
           {/* Title & Client */}

@@ -22,13 +22,13 @@ const ContactSection = () => {
       icon: Github,
       label: "GitHub",
       value: "GitHub",
-      href: "https://github.com"
+      href: "https://github.com/Yanuarprayoga9"
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
       value: "LinkedIn",
-      href: "https://linkedin.com"
+      href: "https://www.linkedin.com/in/yanuar-prayoga-0607ba219"
     }
   ];
 

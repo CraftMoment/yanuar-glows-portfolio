@@ -56,11 +56,19 @@ const Projects = () => {
                 >
                   {/* Preview Image */}
                   <div className="aspect-video bg-secondary/50 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
-                      <span className="text-4xl font-bold text-primary/30">
-                        {content.title.split(" ").map(w => w[0]).join("").slice(0, 3)}
-                      </span>
-                    </div>
+                    {project.image && project.image !== "/placeholder.svg" ? (
+                      <img 
+                        src={project.image} 
+                        alt={content.title}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center">
+                        <span className="text-4xl font-bold text-primary/30">
+                          {content.title.split(" ").map(w => w[0]).join("").slice(0, 3)}
+                        </span>
+                      </div>
+                    )}
                     <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/5 transition-colors" />
                   </div>
 
